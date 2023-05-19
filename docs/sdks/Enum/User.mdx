@@ -6,11 +6,19 @@ toc_max_heading_level: 2
 
 # User
 
-## 功能介绍
-
 :::info
 
 用户信息相关枚举
+
+:::
+
+## 离线消息接收选项 {#MessageOpt}
+
+### 功能介绍
+
+:::info
+
+用户离线并且接入了如：个推、极光等第三方离线推送时，可以通过设置此选项来控制离线消息是否推送。
 
 :::
 
@@ -27,37 +35,37 @@ values={[
 
 <TabItem value="Flutter">
 
-### 参数详解
+### 枚举详解
 
 </TabItem>
 
 <TabItem value="iOS">
 
-### OIMReceiveMessageOpt
+### 枚举详解
 
-| 枚举值名称                     | 枚举值 | 描述                                     |
-| ------------------------------ | ------ | ---------------------------------------- |
-| OIMReceiveMessageOptReceive    | 0      | 在线正常接收消息，离线时会进行 APNs 推送 |
-| OIMReceiveMessageOptNotReceive | 1      | 不会接收到消息，离线不会有推送通知       |
-| OIMReceiveMessageOptNotNotify  | 2      | 在线正常接收消息，离线不会有推送通知     |
+| 枚举值名称                     | 枚举值 | 描述                   |
+| ------------------------------ | ------ | ---------------------- |
+| OIMReceiveMessageOptReceive    | 0      | 离线时会进行 APNs 推送 |
+| OIMReceiveMessageOptNotReceive | 1      | 离线不会有推送通知     |
+| OIMReceiveMessageOptNotNotify  | 2      | 离线不会有推送通知     |
 
 </TabItem>
 
 <TabItem value="Android">
 
-### 参数详解
+### 枚举详解
 
 </TabItem>
 
 <TabItem value="Web">
 
-### 参数详解
+### 枚举详解
 
 </TabItem>
 
 <TabItem value="Uniapp">
 
-### 参数详解
+### 枚举详解
 
 </TabItem>
 
