@@ -112,15 +112,15 @@ BOOL success = [OIMManager.manager initSDKWithConfig:config
 
 ### 参数详解
 
-| 参数名称       | 参数类型                               | 是否必填 | 描述                                                                         |
-| -------------- | -------------------------------------- | -------- | ---------------------------------------------------------------------------- |
-| operationID    | string                                 | 是       | 唯一随机字符串，用于根据日志定位问题                                         |
-| platform       | [Platform](/sdks/enum/web&uniapp)      | 是       | 平台号，用于区分当前登录平台                                                 |
-| api_addr       | string                                 | 是       | IM api 地址，一般为`http://xxx:10002`或`https://xxx/api`                     |
-| ws_addr        | string                                 | 是       | IM ws 地址，一般为`ws://xxx:10001`或`wss://xxx/message_gateway`              |
-| data_dir       | string                                 | 是       | IM 客户端 DB 存放目录，要求绝对路径，一般通过`plus.io.requestFileSystem`获取 |
-| object_storage | [ObjectStorage](/sdks/enum/web&uniapp) | 是       | IM 文件资源存放方式                                                          |
-| log_level      | [LogLevel](/sdks/enum/web&uniapp)      | 是       | SDK 日志打印级别                                                             |
+| 参数名称       | 参数类型                                   | 是否必填 | 描述                                                                         |
+| -------------- | ------------------------------------------ | -------- | ---------------------------------------------------------------------------- |
+| operationID    | string                                     | 是       | 唯一随机字符串，用于根据日志定位问题                                         |
+| platform       | [Platform](/sdks/enum/Initialization)      | 是       | 平台号，用于区分当前登录平台                                                 |
+| api_addr       | string                                     | 是       | IM api 地址，一般为`http://xxx:10002`或`https://xxx/api`                     |
+| ws_addr        | string                                     | 是       | IM ws 地址，一般为`ws://xxx:10001`或`wss://xxx/message_gateway`              |
+| data_dir       | string                                     | 是       | IM 客户端 DB 存放目录，要求绝对路径，一般通过`plus.io.requestFileSystem`获取 |
+| object_storage | [ObjectStorage](/sdks/enum/Initialization) | 是       | IM 文件资源存放方式                                                          |
+| log_level      | [LogLevel](/sdks/enum/Initialization)      | 是       | SDK 日志打印级别                                                             |
 
 ### 返回模板
 
