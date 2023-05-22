@@ -1,22 +1,22 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# refuseFriendApplication
+# getConnectStatus
 
 ## 功能介绍
 
 :::info 说明
 
-拒绝对方添加自己为好友
+获取用户连接状态
 
 :::
 
 :::caution 注意
 
-本人及对方都会收到OnFriendApplicationRejected回调
+此接口主要用于 UI 显示，由于 SDK 内部有重试机制，不要根据连接状态做任何逻辑操作，如不要因为连接失败而再调次用 login。
 
 :::
 
@@ -42,37 +42,24 @@ values={[
 ### 函数原型
 
 ```swift showLineNumbers
-
-- (void)refuseFriendApplication:(NSString *)userID
-                      handleMsg:(NSString *)msg
-              onSuccess:(nullable OIMSuccessCallback)onSuccess
-              onFailure:(nullable OIMFailureCallback)onFailure;
-
+- (NSInteger)getConnectStatus;
 ```
 
 ### 输入参数
 
-| 参数名称 | 参数类型 | 是否必填 | 描述    |
-| -------- | -------- | -------- | ------- |
-| userID   | NSString | 是       | 用户 ID |
-| msg      | NSString | 是       | 信息    |
+无
 
 ### 返回结果
 
-| 参数名称  | 参数类型                                                     | 描述     |
-| --------- | ------------------------------------------------------------ | -------- |
-| onSuccess | [OIMSuccessCallback](docs/sdks/Callback/SuccessCallback.mdx) | 成功返回 |
-| onFailure | [OIMFailureCallback](docs/sdks/Callback/ErrorCallback.mdx)   | 失败返回 |
+| 参数名称  | 参数类型 | 描述     |
+| --------- | -------- | -------- |
+| NSInteger | status   | 链接状态 |
 
 ### 代码示例
 
 ```swift showLineNumbers
 
-[OIMManager.manager refuseFriendApplication:@""
-                                        handleMsg:@""
-                                          onSuccess:^(NSString * _Nullable data) {
-} onFailure:^(NSInteger code, NSString * _Nullable msg) {
-}];
+NSInteger status = [OIMManager.manager getConnectStatus];
 
 ```
 

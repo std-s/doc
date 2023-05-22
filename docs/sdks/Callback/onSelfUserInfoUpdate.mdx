@@ -4,13 +4,13 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# FullUserInfoCallback
+# onFriendInfoChanged
 
 ## 功能介绍
 
 :::info
 
-请求用户信息的回调体
+好友资料变更通知
 
 :::
 
@@ -37,17 +37,15 @@ values={[
 
 ```swift showLineNumbers
 
-OIMUserInfoCallback (
-  OIMFullUserInfo *userInfo,
-)
+- (void)onSelfInfoUpdated:(NSString * _Nullable)userInfo
 
 ```
 
 ### 返回结果
 
-| 枚举值名称 | 枚举值                                           | 描述     |
-| ---------- | ------------------------------------------------ | -------- |
-| userInfo   | [OIMFullUserInfo](docs/sdks/Class/User/FullUserInfo.mdx) | 用户信息 |
+| 名称     | 类型     | 描述     |
+| -------- | -------- | -------- |
+| userInfo | NSString | 用户信息 |
 
 </TabItem>
 

@@ -4,14 +4,13 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# getFriendList
+# getDesignatedFriendsInfo
 
 ## 功能介绍
 
 :::info 说明
 
-（1）获取指定好友的昵称、头像等IM中的资料。  
-（2）建议一次最大100个，因为数量过多可能会导致数据包太大被后台拒绝。
+通过关键词搜索好友
 
 :::
 
@@ -38,27 +37,36 @@ values={[
 
 ```swift showLineNumbers
 
-- (void)getFriendListWithOnSuccess:(nullable OIMFullUsersInfoCallback)onSuccess
-                         onFailure:(nullable OIMFailureCallback)onFailure;
+- (void)searchFriends:(OIMSearchUserParam *)searchParam
+            onSuccess:(nullable OIMSearchUsersInfoCallback)onSuccess
+            onFailure:(nullable OIMFailureCallback)onFailure;
 
 ```
 
 ### 输入参数
 
-无
+| 参数名称    | 参数类型                                                       | 是否必填 | 描述     |
+| ----------- | -------------------------------------------------------------- | -------- | -------- |
+| searchParam | [OIMSearchUserParam](docs/sdks/Class/User/SearchUserParam.mdx) | 是       | 搜索参数 |
 
 ### 返回结果
 
-| 参数名称  | 参数类型                                                                | 描述     |
-| --------- | ----------------------------------------------------------------------- | -------- |
-| onSuccess | [OIMFullUsersInfoCallback](docs/sdks/Callback/FullUserInfoCallback.mdx) | 成功返回 |
-| onFailure | [OIMFailureCallback](docs/sdks/Callback/ErrorCallback.mdx)              | 失败返回 |
+| 参数名称  | 参数类型                                                   | 描述     |
+| --------- | ---------------------------------------------------------- | -------- |
+| onSuccess | NSArray<OIMSearchUserInfo \*>                              | 成功返回 |
+| onFailure | [OIMFailureCallback](docs/sdks/Callback/ErrorCallback.mdx) | 失败返回 |
 
 ### 代码示例
 
 ```swift showLineNumbers
 
-[OIMManager.manager getFriendListWithOnSuccess:^(NSArray<OIMFullUserInfo *> * _Nullable userInfos) {
+OIMSearchUserParam *param = [OIMSearchUserParam new];
+param.keywordList = @[];
+param.isSearchRemark = YES;
+param.isSearchUserID = YES;
+
+[OIMManager.manager searchFriends:param
+                      onSuccess:^(NSArray<OIMSearchUserInfo *> * _Nullable usersInfo) {
 } onFailure:^(NSInteger code, NSString * _Nullable msg) {
 }];
 

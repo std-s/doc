@@ -4,13 +4,13 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# UserInfoCallback
+# onFriendApplicationDeleted
 
 ## 功能介绍
 
 :::info
 
-请求用户信息的回调体
+好友申请被删除
 
 :::
 
@@ -37,17 +37,15 @@ values={[
 
 ```swift showLineNumbers
 
-OIMUserInfoCallback (
-  OIMUserInfo *userInfo,
-)
+- (void)onFriendApplicationRejected:(OIMFriendApplication *)application;
 
 ```
 
 ### 返回结果
 
-| 枚举值名称 | 枚举值                                           | 描述     |
-| ---------- | ------------------------------------------------ | -------- |
-| userInfo   | [OIMUserInfo](docs/sdks/Class/User/UserInfo.mdx) | 用户信息 |
+| 名称        | 类型                                                               | 描述           |
+| ----------- | ------------------------------------------------------------------ | -------------- |
+| application | [OIMFriendApplication](docs/sdks/Class/User/FriendApplication.mdx) | 好友申请被删除 |
 
 </TabItem>
 

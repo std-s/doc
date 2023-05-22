@@ -4,13 +4,19 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# getSendFriendApplicationList
+# getBlackList
 
 ## 功能介绍
 
 :::info 说明
 
-获取好友申请列表，指的是主动发起的，即本人是发起人
+获取黑名单
+
+:::
+
+:::caution 注意
+
+返回你拉黑哪些用户，不是你被哪些用户拉黑
 
 :::
 
@@ -37,8 +43,8 @@ values={[
 
 ```swift showLineNumbers
 
-- (void)getSendFriendApplicationListWithOnSuccess:(nullable OIMFriendApplicationsCallback)onSuccess
-                                        onFailure:(nullable OIMFailureCallback)onFailure;
+- (void)getBlackListWithOnSuccess:(nullable OIMBlacksInfoCallback)onSuccess
+                         onFailure:(nullable OIMFailureCallback)onFailure;
 
 ```
 
@@ -50,14 +56,14 @@ values={[
 
 | 参数名称  | 参数类型                                                   | 描述     |
 | --------- | ---------------------------------------------------------- | -------- |
-| onSuccess | OIMFriendApplicationsCallback                              | 成功返回 |
+| onSuccess | NSArray<OIMFullUserInfo \*>                                | 成功返回 |
 | onFailure | [OIMFailureCallback](docs/sdks/Callback/ErrorCallback.mdx) | 失败返回 |
 
 ### 代码示例
 
 ```swift showLineNumbers
 
-[OIMManager.manager getSendFriendApplicationListWithOnSuccess:^(NSArray<OIMFriendApplication *> * _Nullable friendApplications) {
+[OIMManager.manager getBlackListWithOnSuccess:^(NSArray<OIMFullUserInfo *> * _Nullable userInfos) {
 } onFailure:^(NSInteger code, NSString * _Nullable msg) {
 }];
 

@@ -54,14 +54,14 @@ values={[
 
 | 参数名称 | 参数类型              | 是否必填 | 描述         |
 | -------- | --------------------- | -------- | ------------ |
-| usersID     | NSArray <NSString \*> | 是       | 用户 ID 列表 |
+| usersID  | NSArray <NSString \*> | 是       | 用户 ID 列表 |
 
 ### 返回结果
 
-| 参数名称  | 参数类型                                                           | 描述     |
-| --------- | ------------------------------------------------------------------ | -------- |
-| onSuccess | [OIMFullUsersInfoCallback](docs/sdks/Callback/FullUserInfoCallback.mdx) | 成功返回 |
-| onFailure | [OIMFailureCallback](docs/sdks/Callback/ErrorCallback.mdx)         | 失败返回 |
+| 参数名称  | 参数类型                                                   | 描述     |
+| --------- | ---------------------------------------------------------- | -------- |
+| onSuccess | NSArray<OIMFullUserInfo \*>                                | 成功返回 |
+| onFailure | [OIMFailureCallback](docs/sdks/Callback/ErrorCallback.mdx) | 失败返回 |
 
 ### 代码示例
 

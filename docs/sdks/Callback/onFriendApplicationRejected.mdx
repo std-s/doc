@@ -4,13 +4,13 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# PublicUserInfo
+# onFriendApplicationRejected
 
 ## 功能介绍
 
 :::info
 
-用户公开信息，主要是基本信息，不包括手机等其它隐私字段
+好友申请被拒绝
 
 :::
 
@@ -33,13 +33,19 @@ values={[
 
 <TabItem value="iOS">
 
-### OIMFullUserInfo
+### 返回原型
 
-| 字段名称 | 字段类型 | 描述                        |
-| -------- | -------- | --------------------------- |
-| userID   | NSString | 用户 ID，必须保证 IM 内唯一 |
-| nickname | NSString | 昵称                        |
-| faceURL  | NSString | 头像链接                    |
+```swift showLineNumbers
+
+- (void)onFriendApplicationRejected:(OIMFriendApplication *)application;
+
+```
+
+### 返回结果
+
+| 名称        | 类型                                                               | 描述             |
+| ----------- | ------------------------------------------------------------------ | ---------------- |
+| application | [OIMFriendApplication](docs/sdks/Class/User/FriendApplication.mdx) | 拒绝好友申请信息 |
 
 </TabItem>
 
