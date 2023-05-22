@@ -4,23 +4,21 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# User
-
-:::info
-
-用户信息相关枚举
-
-:::
-
-## 离线消息接收选项 {#MessageOpt}
-
-### 功能介绍
+# GlobalRecvMsgOpt
 
 :::info
 
 用户离线并且接入了如：个推、极光等第三方离线推送时，可以通过设置此选项来控制离线消息是否推送。
 
 :::
+
+## 离线消息接收选项 {#MessageOpt}
+
+| 枚举值 | 描述                   |
+| ------ | ---------------------- |
+| 0      | 离线时会进行 APNs 推送 |
+| 1      | 离线不会有推送通知     |
+| 2      | 离线不会有推送通知     |
 
 <Tabs
 groupId="sdks-language"
@@ -41,13 +39,13 @@ values={[
 
 <TabItem value="iOS">
 
-### 枚举详解
+### 枚举详解 OIMReceiveMessageOpt
 
-| 枚举值名称                     | 枚举值 | 描述                   |
-| ------------------------------ | ------ | ---------------------- |
-| OIMReceiveMessageOptReceive    | 0      | 离线时会进行 APNs 推送 |
-| OIMReceiveMessageOptNotReceive | 1      | 离线不会有推送通知     |
-| OIMReceiveMessageOptNotNotify  | 2      | 离线不会有推送通知     |
+| 枚举值名称                     | 枚举值 |
+| ------------------------------ | ------ |
+| OIMReceiveMessageOptReceive    | 0      |
+| OIMReceiveMessageOptNotReceive | 1      |
+| OIMReceiveMessageOptNotNotify  | 2      |
 
 </TabItem>
 
