@@ -4,20 +4,20 @@ toc_min_heading_level: 2
 toc_max_heading_level: 2
 ---
 
-# joinGroup
+# changeGroupMute
 
 ## 功能介绍
 
 :::info 说明
 
-申请加入群组
+群主或者管理员修改群禁言状态
 
 :::
 
 :::caution 注意
 
-（1）如果进群方式是直接进群，则申请人直接进群，所有群成员包括申请者收到OnGroupMemberAdded回调；  
-（2）如果是其他进群方式，则管理员和群主会收到OnGroupApplicationAdded回调。
+（1）群成员会收到onGroupDismissed回调；  
+（2）加入的群还会拉取到，群状态字段会设置为解散。
 
 :::
 
@@ -44,21 +44,19 @@ values={[
 
 ```swift showLineNumbers
 
-- (void)joinGroup:(NSString *)groupID
-           reqMsg:(NSString *)reqMsg
-       joinSource:(OIMJoinType)joinSource
-        onSuccess:(OIMSuccessCallback)onSuccess
-        onFailure:(OIMFailureCallback)onFailure;
+- (void)changeGroupMute:(NSString *)groupID
+                 isMute:(BOOL)isMute
+              onSuccess:(nullable OIMSuccessCallback)onSuccess
+              onFailure:(nullable OIMFailureCallback)onFailure;
 
 ```
 
 ### 输入参数
 
-| 参数名称   | 参数类型                                     | 是否必填 | 描述     |
-| ---------- | -------------------------------------------- | -------- | -------- |
-| groupID    | NSString                                     | 是       | 群 ID    |
-| reqMsg     | NSSting                                      | 否       | 请求信息 |
-| joinSource | [OIMJoinType](docs/sdks/Enum/JoinSource.mdx) | 是       | 请求来源 |
+| 参数名称 | 参数类型 | 是否必填 | 描述  |
+| -------- | -------- | -------- | ----- |
+| groupID  | NSString | 是       | 群 ID |
+| isMute   | BOOL     | 是       | 群 ID |
 
 ### 返回结果
 
@@ -71,9 +69,9 @@ values={[
 
 ```swift showLineNumbers
 
-[OIMManager.manager joinGroup:@""
-                       reqMsg:nil
-                    onSuccess:^(NSString * _Nullable data) {
+ [OIMManager.manager changeGroupMute:@""
+                              isMute:YES
+                           onSuccess:^(NSString * _Nullable data) {
 } onFailure:^(NSInteger code, NSString * _Nullable msg) {
 }];
 
